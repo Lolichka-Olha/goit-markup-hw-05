@@ -659,12 +659,13 @@ ul {
 
   background-color: var(--backdrop-bg-color);
 
+  visibility: visible;
   opacity: 1;
-  transition: opacity var(--first-transition);
+  transition: visibility var(--first-transition), opacity var(--first-transition);
 }
 
 .backdrop.is-hidden {
-  /* visibility: hidden; */
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
@@ -700,7 +701,15 @@ ul {
 
   background-color: var(--primary-color);
   color: var(--logo-color);
+  fill: currentColor;
   border: 1px solid var(--border-modal-btn-close-color);
   border-radius: 50%;
   cursor: pointer;
+
+  transition: color var(--first-transition);
+}
+
+.modal-btn-close:hover,
+.modal-btn-close:focus {
+  color: var(--accent-color);
 }
