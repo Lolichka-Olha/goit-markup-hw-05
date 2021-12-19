@@ -119,6 +119,8 @@ ul {
   line-height: 1.42;
   letter-spacing: 0.02em;
   text-decoration: none;
+
+  transition: color var(--first-transition);
 }
 
 .nav-link-current::after {
@@ -160,16 +162,18 @@ ul {
   line-height: 1.42;
   letter-spacing: 0.02em;
   text-decoration: none;
-}
 
-.contact-icon {
-  margin-right: 10px;
-  fill: currentColor;
+  transition: color var(--first-transition);
 }
 
 .contact-link:hover,
 .contact-link:focus {
   color: var(--accent-color);
+}
+
+.contact-icon {
+  margin-right: 10px;
+  fill: currentColor;
 }
 
 /* Оформление для index */
@@ -219,6 +223,8 @@ ul {
   line-height: 1.87;
   letter-spacing: 0.06em;
   cursor: pointer;
+
+  transition: background-color var(--first-transition), box-shadow var(--first-transition);
 }
 
 .hero-btn:hover,
@@ -388,11 +394,13 @@ ul {
   color: var(--social-client-color);
   fill: currentColor;
   border-radius: 50%;
+
+  transition: color var(--first-transition), background-color var(--first-transition);
 }
 
 .card-social-link:hover,
 .card-social-link:focus {
-  background: var(--accent-color);
+  background-color: var(--accent-color);
   color: var(--primary-color);
 }
 
@@ -421,6 +429,8 @@ ul {
   fill: currentColor;
   border: 1px solid var(--social-client-color);
   border-radius: 4px;
+
+  transition: color var(--first-transition), border-color var(--first-transition);
 }
 
 .client-link:hover,
@@ -463,6 +473,8 @@ ul {
   color: var(--footer-contacts-color);
   font-style: normal;
   text-decoration: none;
+
+  transition: color var(--first-transition);
 }
 
 .residence-item:first-child > .residence-link {
@@ -511,11 +523,13 @@ ul {
   color: var(--primary-color);
   fill: currentColor;
   border-radius: 50%;
+
+  transition: background-color var(--first-transition);
 }
 
 .social-link:hover,
 .social-link:focus {
-  background: var(--accent-color);
+  background-color: var(--accent-color);
 }
 
 /* Оформление для portfolio.html */
@@ -547,6 +561,9 @@ ul {
   line-height: 1.62;
   letter-spacing: 0.03em;
   cursor: pointer;
+
+  transition: color var(--first-transition), background-color var(--first-transition),
+    box-shadow var(--first-transition);
 }
 
 .filter-btn-current,
@@ -554,7 +571,6 @@ ul {
 .filter-btn:focus {
   background-color: var(--accent-color);
   color: var(--primary-color);
-
   box-shadow: var(--filter-btn-box-shadow);
 }
 
@@ -573,13 +589,17 @@ ul {
   margin-left: var(--card-gallery-gap);
 }
 
-.gallery-item:hover {
-  box-shadow: var(--gallery-box-shadow);
-}
-
 .gallery-link {
+  display: block;
   color: currentColor;
   text-decoration: none;
+
+  transition: box-shadow var(--first-transition);
+}
+
+.gallery-link:hover,
+.gallery-link:focus {
+  box-shadow: var(--gallery-box-shadow);
 }
 
 .gallery-thumb {
@@ -603,7 +623,8 @@ ul {
   transition: transform var(--first-transition);
 }
 
-.gallery-item:hover .gallery-description {
+.gallery-link:hover .gallery-description,
+.gallery-link:focus .gallery-description {
   transform: translateY(0);
 }
 
@@ -637,25 +658,34 @@ ul {
   height: 100%;
 
   background-color: var(--backdrop-bg-color);
+
+  opacity: 1;
+  transition: opacity var(--first-transition);
 }
 
 .backdrop.is-hidden {
-  visibility: hidden;
+  /* visibility: hidden; */
   opacity: 0;
   pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   min-width: 528px;
   min-height: 581px;
 
   background-color: var(--primary-color);
   box-shadow: var(--modal-box-shadow);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--first-transition);
 }
 
 .modal-btn-close {
